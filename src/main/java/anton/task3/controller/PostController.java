@@ -12,6 +12,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// Принцип работы алгоритма :
+// 1. Убрать select, from и всё что после from
+// 2. Найти построки и функции у которых нет alias
+// 3. Получить значения в кобках
+// 4. Заменить скобки на значения в основной строке
+// 5. Найти подстроку с alias и исключить её из строки
+// 6. Разделить скобки по запятой
+// 7. Запустить цикл работающий с конца.
+
+
 @RestController()
 @RequestMapping(value = "/api")
 @Api(value = "String", description = "Контроллер для парсинга sql-запроса")
